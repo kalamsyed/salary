@@ -1,17 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driving_Licence</title>
 </head>
+
 <body>
     <table border="2px" align="center">
         <tr>
-            <td >Date</td>
-            <td >Salary</td>
-            <td >Tax Amount</td>
-            <td >Take Home Salary</td>
+            <td>Date</td>
+            <td>Salary</td>
+            <td>Tax Amount</td>
+            <td>Take Home Salary</td>
         </tr>
         <tr>
             <td id="d"></td>
@@ -20,18 +23,30 @@
             <td id="T"></td>
         </tr>
     </table>
+
     <script>
-        let obj=new Date()
-        let date=obj.toLocaleDateString()
-        let salary=prompt("enter your salary")
-        let tax=prompt("enter your tax amount:")
-        let remaining=salary-tax
+        let obj = new Date();
+        let date = obj.toLocaleDateString();
+        let salary = Number(prompt("Enter your salary"));
+        let tax = 0;
 
-        document.getElementById("d").innerHTML=date
-        document.getElementById("s").innerHTML=salary
-        document.getElementById("t").innerHTML=tax
-        document.getElementById("T").innerHTML=remaining
+        if (salary <= 30000) {
+            tax = salary * 0 / 100;
+        } else if (salary > 30000 && salary <= 50000) {
+            tax = salary * 5 / 100;
+        } else if (salary > 50000 && salary <= 70000) {
+            tax = salary * 8 / 100;
+        } else if (salary > 70000) {
+            tax = salary * 10 / 100; // you can adjust tax %
+        }
 
+        let remaining = salary - tax;
+
+        document.getElementById("d").innerHTML = date;
+        document.getElementById("s").innerHTML = salary;
+        document.getElementById("t").innerHTML = tax;
+        document.getElementById("T").innerHTML = remaining;
     </script>
 </body>
+
 </html>
